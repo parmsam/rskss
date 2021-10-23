@@ -27,10 +27,10 @@ library(rskss)
 dplyr::glimpse(rskss::shortcuts_table)
 #> Rows: 201
 #> Columns: 4
-#> $ description   <chr> "Move cursor to Console", "Clear console", "Move cursor to beginning of line", "Move cursor…
-#> $ windows_linux <chr> "Ctrl+2", "Ctrl+L", "Home", "End", "Up/Down", "Ctrl+Up", "Esc", "Ctrl+Shift+H", "Ctrl+. [pe…
-#> $ mac           <chr> "Ctrl+2", "Ctrl+L", "Cmd+Left", "Cmd+Right", "Up/Down", "Cmd+Up", "Esc", "Ctrl+Shift+H", "C…
-#> $ type          <chr> "Console", "Console", "Console", "Console", "Console", "Console", "Console", "Console", "So…
+#> $ description   [3m[38;5;246m<chr>[39m[23m "Move cursor to Console", "Clear console", "Move cursor to beginning of line", "Move cursor…
+#> $ windows_linux [3m[38;5;246m<chr>[39m[23m "Ctrl+2", "Ctrl+L", "Home", "End", "Up/Down", "Ctrl+Up", "Esc", "Ctrl+Shift+H", "Ctrl+. [pe…
+#> $ mac           [3m[38;5;246m<chr>[39m[23m "Ctrl+2", "Ctrl+L", "Cmd+Left", "Cmd+Right", "Up/Down", "Cmd+Up", "Esc", "Ctrl+Shift+H", "C…
+#> $ type          [3m[38;5;246m<chr>[39m[23m "Console", "Console", "Console", "Console", "Console", "Console", "Console", "Console", "So…
 head(shortcuts_table, 5)
 #> # A tibble: 5 x 4
 #>   description                      windows_linux mac       type   
@@ -61,5 +61,22 @@ find_ks("terminal", windows_linux_include = FALSE)
 #> 4 Move Focus to Terminal                  Shift+Option+M    Terminal
 #> 5 Previous Terminal                       Shift+Option+F11  Terminal
 #> 6 Next Terminal                           Shift+Option+F12  Terminal
+```
+
+There is are keybinding search functions called find_kb_mac() and find_kb_winlin() that allow you to filter the the key bindings fields based on key binds of interest to find shortcuts:
+
+```r
+## search on shortcut table description field
+find_kb_winlin("Ctrl+Home")
+#> # A tibble: 1 x 3
+#>   description       windows_linux                 type                        
+#>   <chr>             <chr>                         <chr>                       
+#> 1 Jump to Start/End Ctrl+Home/End or Ctrl+Up/Down Editing (Console and Source)
+find_kb_mac("Ctrl+1")
+#> # A tibble: 2 x 3
+#>   description                  mac    type  
+#>   <chr>                        <chr>  <chr> 
+#> 1 Move cursor to Source Editor Ctrl+1 Source
+#> 2 Move focus to Source Editor  Ctrl+1 Views
 ```
 

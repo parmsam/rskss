@@ -42,3 +42,10 @@ find_ks("zoom console")
 find_ks("terminal", windows_linux_include = FALSE)
 ```
 
+There is are keybinding search functions called find_kb_mac() and find_kb_winlin() that allow you to filter the the key bindings fields based on key binds of interest to find shortcuts:
+```{r}
+## search on shortcut table description field
+find_kb_winlin("Ctrl+Home")
+find_kb_mac("Ctrl+1")
+```
+
