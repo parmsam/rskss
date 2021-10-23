@@ -35,5 +35,6 @@ find_ks <- function(pattern, ignore_case = TRUE,
     filtered_table <- filtered_table %>% dplyr::select(-.data$type)
   }
   return(filtered_table)
-
 }
+
+utils::globalVariables(c("shortcuts_table"))
