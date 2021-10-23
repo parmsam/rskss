@@ -10,11 +10,11 @@ knitr::opts_chunk$set(
 ```
 
 # rskss
-
+(Work in progress)
 <!-- badges: start -->
 <!-- badges: end -->
 
-The rskss package allows for search on a table of default keyboard shortcuts in Windows/Linux and for the RStudio IDE.
+The rskss package allows for search on a table of default keyboard shortcuts in Windows/Linux/Mac and for the RStudio IDE.
 
 ## Installation
 
