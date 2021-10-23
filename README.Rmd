@@ -1,0 +1,44 @@
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# rskss
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The rskss package allows for search on a table of default keyboard shortcuts in Windows/Linux and for the RStudio IDE.
+
+## Installation
+
+You can install the development version of rskss from [GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("parmsam/rskss")
+```
+## Example
+
+The package uses a tibble named `shortcuts_table` that has a list of descriptions, windows/linux/mac shortcuts, and types of shortcuts:
+
+```{r example}
+library(rskss)
+## look at shortcuts table
+dplyr::glimpse(rskss::shortcuts_table)
+head(shortcuts_table, 5)
+
+```
+
+There is a function called find_ks() that allow you to filter the description field based on patterns of interest to quickly find the shortcut(s) of interest:
+```{r}
+## search on shortcut table description field
+find_ks("zoom console")
+find_ks("terminal", windows_linux_include = FALSE)
+```
+
