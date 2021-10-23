@@ -23,12 +23,23 @@ The package uses a tibble named `shortcuts_table` that has a list of description
 
 ```r
 library(rskss)
-#> Error in library(rskss): there is no package called 'rskss'
 ## look at shortcuts table
 dplyr::glimpse(rskss::shortcuts_table)
-#> Error in loadNamespace(name): there is no package called 'rskss'
+#> Rows: 201
+#> Columns: 4
+#> $ description   <chr> "Move cursor to Console", "Clear console", "Move cursor to beginning of line", "Move cursor…
+#> $ windows_linux <chr> "Ctrl+2", "Ctrl+L", "Home", "End", "Up/Down", "Ctrl+Up", "Esc", "Ctrl+Shift+H", "Ctrl+. [pe…
+#> $ mac           <chr> "Ctrl+2", "Ctrl+L", "Cmd+Left", "Cmd+Right", "Up/Down", "Cmd+Up", "Esc", "Ctrl+Shift+H", "C…
+#> $ type          <chr> "Console", "Console", "Console", "Console", "Console", "Console", "Console", "Console", "So…
 head(shortcuts_table, 5)
-#> Error in head(shortcuts_table, 5): object 'shortcuts_table' not found
+#> # A tibble: 5 x 4
+#>   description                      windows_linux mac       type   
+#>   <chr>                            <chr>         <chr>     <chr>  
+#> 1 Move cursor to Console           Ctrl+2        Ctrl+2    Console
+#> 2 Clear console                    Ctrl+L        Ctrl+L    Console
+#> 3 Move cursor to beginning of line Home          Cmd+Left  Console
+#> 4 Move cursor to end of line       End           Cmd+Right Console
+#> 5 Navigate command history         Up/Down       Up/Down   Console
 ```
 
 There is a function called find_ks() that allow you to filter the description field based on patterns of interest to quickly find the shortcut(s) of interest:
@@ -36,8 +47,19 @@ There is a function called find_ks() that allow you to filter the description fi
 ```r
 ## search on shortcut table description field
 find_ks("zoom console")
-#> Error in find_ks("zoom console"): could not find function "find_ks"
+#> # A tibble: 1 x 4
+#>   description  windows_linux mac          type 
+#>   <chr>        <chr>         <chr>        <chr>
+#> 1 Zoom Console Ctrl+Shift+2  Ctrl+Shift+2 Views
 find_ks("terminal", windows_linux_include = FALSE)
-#> Error in find_ks("terminal", windows_linux_include = FALSE): could not find function "find_ks"
+#> # A tibble: 6 x 3
+#>   description                             mac               type    
+#>   <chr>                                   <chr>             <chr>   
+#> 1 Send current line/selection to terminal Cmd+Option+Return Source  
+#> 2 Move focus to Terminal                  Shift+Option+M    Views   
+#> 3 New Terminal                            Shift+Option+R    Terminal
+#> 4 Move Focus to Terminal                  Shift+Option+M    Terminal
+#> 5 Previous Terminal                       Shift+Option+F11  Terminal
+#> 6 Next Terminal                           Shift+Option+F12  Terminal
 ```
 

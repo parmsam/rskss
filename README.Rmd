@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 # rskss
-(Work in progress)
+(WORK IN PROGRESS)
 <!-- badges: start -->
 <!-- badges: end -->
 
