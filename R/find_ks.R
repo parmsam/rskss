@@ -13,24 +13,26 @@
 #' @examples
 #' find_ks("zoom console")
 #' find_ks("terminal", windows_linux_include = FALSE)
+#'
+#' @importFrom rlang .data
 find_ks <- function(pattern, ignore_case = TRUE,
                     windows_linux_include = TRUE, mac_include = TRUE, type_include = TRUE,
                     data=shortcuts_table){
 
   filtered_table <- data %>%
-    dplyr::filter( stringr::str_detect(`description`, stringr::regex(pattern, ignore_case = {ignore_case}))
+    dplyr::filter( stringr::str_detect(.data$`description`, stringr::regex(pattern, ignore_case = {ignore_case}))
             )
 
   if(windows_linux_include==FALSE){
-    filtered_table <- filtered_table %>% dplyr::select(-windows_linux)
+    filtered_table <- filtered_table %>% dplyr::select(-.data$windows_linux)
   }
 
   if(mac_include==FALSE){
-    filtered_table <- filtered_table %>% dplyr::select(-mac)
+    filtered_table <- filtered_table %>% dplyr::select(-.data$mac)
   }
 
   if(type_include==FALSE){
-    filtered_table <- filtered_table %>% dplyr::select(-type)
+    filtered_table <- filtered_table %>% dplyr::select(-.data$type)
   }
   return(filtered_table)
 

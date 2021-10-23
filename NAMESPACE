@@ -3,3 +3,4 @@
 export("%>%")
 export(find_ks)
 importFrom(magrittr,"%>%")
+importFrom(rlang,.data)

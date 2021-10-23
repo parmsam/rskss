@@ -35,4 +35,5 @@ Finds matching keyboard shortcuts based on matched pattern on description
 \examples{
 find_ks("zoom console")
 find_ks("terminal", windows_linux_include = FALSE)
+
 }

@@ -20,6 +20,7 @@ BugReports: https://github.com/parmsam/rskss/issues
 Imports: 
     dplyr,
     magrittr,
+    rlang,
     stringr
 Suggests: 
     tibble, 
