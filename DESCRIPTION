@@ -5,7 +5,7 @@ Authors@R:
     person(given = "Sam",
            family = "Parmar",
            role = c("aut", "cre"),
-           email = "parmartsam@gmail.com",
+           email = "parmsam@protonmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Search default keyboard shortcuts for RStudio. 
     See here for more info: 
